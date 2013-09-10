@@ -69,6 +69,106 @@ class Car
 			@@cars_per_color[new_color] = 1
 		end
 	end
+
+	def nitrous
+
+		end_time = Time.now + 1
+		frame = 0
+		begin
+			case frame%5
+			when 0
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||    o  o   |"
+				puts "|          ||     ||    |"
+				puts "|          ||     ==    |"
+				puts "|          ||    o  o   |"
+
+				frame +=1
+
+			when 1
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||   o  o    |"
+				puts "|          ||    ||     |"
+				puts "|          ||     ==    |"
+				puts "|          ||    o  o   |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+
+				frame +=1
+			when 2
+
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||   o  o    |"
+				puts "|          ||    ||     |"
+				puts "|          ||    ==     |"
+				puts "|          ||   o  o    |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+
+				frame += 1
+			when 3
+
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||    o  o   |"
+				puts "|          ||     ||    |"
+				puts "|          ||    ==     |"
+				puts "|          ||   o  o    |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+
+				frame += 1
+			when 4
+
+
+				puts "|          ||           |"
+				puts "|          ||    o  o   |"
+				puts "|          ||     ||    |"
+				puts "|          ||     ==    |"
+				puts "|          ||    o  o   |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+				puts "|          ||           |"
+
+				frame += 1
+			end
+		end while Time.now < end_time
+
+		puts "WOAH You're going way too fast!!!"
+		@distance = @fuel * 20 + 10 
+		@fuel = 0
+		puts "Now you are out of fuel!"
+	end
 end
 
 
@@ -88,42 +188,43 @@ e.color=("silver")
 puts Car.cars_per_color
 puts Car.most_popular_color
 
-# car_a = Car.new("red")
-# car_b = Car.new()#silver
-# puts car_a
-# puts car_b
-# car_a.drive(10)
-# puts car_a
-# puts car_b
-# car_a.drive(232)
-# car_b.drive(117)
-# puts car_a
-# puts car_b
+car_a = Car.new("red")
+car_b = Car.new()#silver
+puts car_a
+puts car_b
+car_a.drive(10)
+puts car_a
+puts car_b
+car_a.drive(232)
+car_b.drive(117)
+puts car_a
+puts car_b
 
-# car_c = Car.new()
-# car_d = Car.new("silver")
+car_c = Car.new()
+car_d = Car.new("silver")
 
-# puts Car.total_car_count
-
-
-# puts "Most popular: "
-# puts Car.most_popular_color
-# best_color = Car.most_popular_color
-# Car.new(best_color)
-
-# car_e = Car.new("blue")
-# car_f = Car.new("blue")
-# car_g = Car.new("blue")
-# car_h = Car.new("blue")
-# car_i = Car.new("blue")
+puts Car.total_car_count
 
 
-# puts "Most popular: "
-# puts Car.most_popular_color
+puts "Most popular: "
+puts Car.most_popular_color
+best_color = Car.most_popular_color
+Car.new(best_color)
+
+car_e = Car.new("blue")
+car_f = Car.new("blue")
+car_g = Car.new("blue")
+car_h = Car.new("blue")
+car_i = Car.new("blue")
+
+
+puts "Most popular: "
+puts Car.most_popular_color
 
 
 
 
+a.nitrous
 
 
 
