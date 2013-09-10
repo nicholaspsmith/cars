@@ -9,6 +9,7 @@ class Car
 		@distance = 0
 		@@total_car_count += 1
 		@my_color = color
+		@mpg = 20.0
 		
 		if @@cars_per_color[color]
 			@@cars_per_color[color] += 1
@@ -41,14 +42,17 @@ class Car
 		"I'm a car! I've driven #{@distance} and have #{@fuel} gallons gas left"
 	end
 
+	def range
+		@fuel*@mpg
+	end
 
 
 	def drive(miles)
-		if (@fuel - miles/20.0) >= 0
+		if (@fuel - miles/@mpg) >= 0
 			@distance += miles
-			@fuel -= miles/20.0
+			@fuel -= miles/@mpg
 		else
-			@distance += @fuel * 20.0
+			@distance += @fuel * @mpg
 			@fuel = 0
 			puts "You're out of gas!"
 		end
@@ -171,6 +175,65 @@ class Car
 	end
 end
 
+class ConvertibleCar < Car
+	attr_reader :roof_status
+
+	def initialize(col)
+		super(col)
+		@roof_status = "closed"
+	end
+
+	def top_down
+		@roof_status = "down"
+	end
+
+	def close_top
+		@roof_status = "closed"
+	end
+end
+
+class Pickup < Car
+	attr_reader :bed
+
+	def initialize(color="gold")
+		super(color)
+		@fuel = 32.0
+		@mpg = 12.0
+	end
+
+	def open_bed
+		@bed = "open"
+	end
+
+	def close_bed
+		@bed = "closed"
+		
+	end
+end
+
+class SmartCar < Car
+	def initialize(col="brown")
+		super(col)
+		@fuel = 6.0
+		@mpg = 34.0
+	end
+end
+
+f150 = Pickup.new("green")
+
+
+puts Car.cars_per_color
+
+puts f150.range
+
+f150.drive(120)
+
+
+
+smrt = SmartCar.new()
+puts smrt.range
+
+puts Car.cars_per_color
 
 a = Car.new()#silver
 b = Car.new()
@@ -224,11 +287,21 @@ puts Car.most_popular_color
 
 
 
-a.nitrous
+#a.nitrous
 
 
 
+bmw = ConvertibleCar.new("orange")
 
+puts bmw.roof_status
+
+bmw.top_down
+
+puts bmw.roof_status
+
+#bmw.nitrous
+
+puts Car.cars_per_color
 
 
 
